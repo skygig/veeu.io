@@ -17,10 +17,10 @@ const Features = () => {
           <h2>for modern developers</h2>
         </div>
 
-        <div>
-          <p>Everything you need to manage your domains and DNS records</p>
-          <p>in one place, with a developer-first approach.</p>
-        </div>
+        <p>
+          Everything you need to manage your domains and DNS records in one
+          place, with a developer-first approach.
+        </p>
       </div>
 
       <div className={styles.features}>
