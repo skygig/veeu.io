@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import styles from "@/styles/tutorail.module.scss";
 import tutorial from "@/assets/svgs/tutorial.svg";
@@ -68,8 +69,9 @@ const Tutorial = () => {
             <li>Monitor your DNS records in real-time</li>
             <li>Easily update records as needed</li>
           </ul>
-
-          <button>Get Started Now &nbsp; {">"}</button>
+          <Link href="https://app.veeu.io/auth?mode=sign-in">
+            <button>Get Started Now &nbsp; {">"}</button>
+          </Link>
         </div>
       </div>
     </section>

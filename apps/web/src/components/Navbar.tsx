@@ -60,7 +60,7 @@ const Navbar = () => {
         <div className={styles.action}>
           <Link
             className={styles.login}
-            href="https://app.veeu.io/auth?mode=sign-ip"
+            href="https://app.veeu.io/auth?mode=sign-in"
           >
             <button>Log in</button>
           </Link>
