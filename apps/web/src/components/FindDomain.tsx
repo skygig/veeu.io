@@ -48,6 +48,12 @@ const FindDomain = () => {
     setCurrSvg(wwwSvg);
   }, [domainName]);
 
+  const handleKeyPress = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter" && domainName.trim() && !isSearching) {
+      checkDomain();
+    }
+  };
+
   return (
     <>
       <div className={styles.tryTop}>
@@ -59,9 +65,14 @@ const FindDomain = () => {
           type="text"
           placeholder="Claim your domain..."
           onChange={(e) => setDomainName(e.target.value)}
+          onKeyDown={handleKeyPress}
+          value={domainName}
         />
         <p>.veeu.io</p>
-        <button onClick={checkDomain} disabled={isSearching}>
+        <button
+          onClick={checkDomain}
+          disabled={isSearching || !domainName.trim()}
+        >
           <Image src={searchSvg} alt="search" height={20} />
         </button>
       </div>
