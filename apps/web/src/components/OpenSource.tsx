@@ -17,22 +17,29 @@ const OpenSource = () => {
       </div>
 
       <a
-        href="https://github.com/akash-singh8/veeu.io"
+        href="https://github.com/skygig/veeu.io"
+        target="_blank"
         className={styles.github}
       >
-        <Image src={github} alt="github" width={18} />
-        <p>Star on Github</p>
+        <Image src={github} alt="GitHub" width={16} height={16} />
+        Star on Github
       </a>
 
       <div className={styles.data}>
-        <a href="https://github.com/akash-singh8/veeu.io">
-          <Image src={stars} alt="Stars" height={112} />
-          <p>1 Stars</p>
+        <a href="https://github.com/skygig/veeu.io" target="_blank">
+          <Image src={stars} alt="Stars" />
+          <div className={styles.dataText}>
+            <span>1 Stars</span>
+          </div>
         </a>
-
-        <a href="https://github.com/akash-singh8/veeu.io">
-          <Image src={merge} alt="Contribute" height={80} />
-          <p>Contribute</p>
+        <a
+          href="https://github.com/skygig/veeu.io/tree/main/contribute.md"
+          target="_blank"
+        >
+          <Image src={merge} alt="Merge" />
+          <div className={styles.dataText}>
+            <span>Contribute</span>
+          </div>
         </a>
       </div>
     </section>
