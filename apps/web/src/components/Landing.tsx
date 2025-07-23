@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 import FindDomain from "@/components/FindDomain";
+import { MotionDiv } from "./Framer";
 
 import styles from "@/styles/landing.module.scss";
 import eye from "@/assets/svgs/eye.svg";
@@ -25,7 +26,13 @@ const Landing = () => {
         <button>Start for free</button>
       </div>
 
-      <div className={styles.try}>
+      <MotionDiv
+        initial={{ opacity: 0, scale: 0.5 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true, amount: 0.1 }}
+        transition={{ type: "spring", stiffness: 180, damping: 15 }}
+        className={styles.try}
+      >
         <FindDomain />
 
         <div className={styles.example}>
@@ -51,7 +58,7 @@ const Landing = () => {
             <Image src={dots} alt="option" width={28} />
           </div>
         </div>
-      </div>
+      </MotionDiv>
     </section>
   );
 };

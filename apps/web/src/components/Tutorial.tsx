@@ -1,21 +1,36 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import {
+  MotionSection,
+  MotionDiv,
+  MotionButton,
+  container,
+  tutorialStep,
+  item,
+} from "./Framer";
+
 import styles from "@/styles/tutorail.module.scss";
 import tutorial from "@/assets/svgs/tutorial.svg";
 import right from "@/assets/svgs/right.svg";
 
 const Tutorial = () => {
   return (
-    <section className={styles.main}>
-      <div className={styles.title}>
+    <MotionSection
+      className={styles.main}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={container}
+    >
+      <MotionDiv className={styles.title} variants={item}>
         <h2>Veeu 101: A Quickstart</h2>
         <p>
           Follow our step-by-step guide to get started with domain management
         </p>
-      </div>
+      </MotionDiv>
 
-      <div className={styles.map}>
+      <MotionDiv className={styles.map} variants={item}>
         <div>
           <Image src={tutorial} alt="tutorial" width={26} />
         </div>
@@ -29,10 +44,10 @@ const Tutorial = () => {
           <p>3</p>
         </div>
         <span></span>
-      </div>
+      </MotionDiv>
 
       <div className={styles.steps}>
-        <div className={styles.step}>
+        <MotionDiv className={styles.step} variants={tutorialStep}>
           <h2>Register Your Domain</h2>
           <div>
             <Image src={right} alt=">" width={14} />
@@ -42,9 +57,9 @@ const Tutorial = () => {
             <li>Create a free account</li>
             <li>Choose your preferred subdomain under veeu.io</li>
           </ol>
-        </div>
+        </MotionDiv>
 
-        <div className={styles.step}>
+        <MotionDiv className={styles.step} variants={tutorialStep}>
           <h2>Configure DNS Records</h2>
           <div>
             <Image src={right} alt=">" width={14} />
@@ -56,9 +71,9 @@ const Tutorial = () => {
             <li>Configure MX records for email</li>
             <li>Add TXT records for verification</li>
           </ul>
-        </div>
+        </MotionDiv>
 
-        <div className={styles.step}>
+        <MotionDiv className={styles.step} variants={tutorialStep}>
           <h2>Go Live</h2>
           <div>
             <Image src={right} alt=">" width={14} />
@@ -70,11 +85,17 @@ const Tutorial = () => {
             <li>Easily update records as needed</li>
           </ul>
           <Link href="https://app.veeu.io/auth?mode=sign-in">
-            <button>Get Started Now &nbsp; {">"}</button>
+            <MotionButton
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ duration: 0.2, ease: "easeInOut" }}
+            >
+              Get Started Now &nbsp; {">"}
+            </MotionButton>
           </Link>
-        </div>
+        </MotionDiv>
       </div>
-    </section>
+    </MotionSection>
   );
 };
 
