@@ -36,16 +36,19 @@ const FindDomain = () => {
         throw new Error("Domain check failed");
       }
     } catch (err) {
-      alert("Unable to check domains! Please try again later.");
       console.error("Error while checking domain :", err);
+      setTitle("Error checking domain");
+      setCurrSvg(annoyedSvg);
     }
 
     setIsSearching(false);
   };
 
   useEffect(() => {
-    setTitle("Find a Domain");
-    setCurrSvg(wwwSvg);
+    if (!isSearching) {
+      setTitle("Find a Domain");
+      setCurrSvg(wwwSvg);
+    }
   }, [domainName]);
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
