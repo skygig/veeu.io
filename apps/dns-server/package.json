@@ -18,6 +18,7 @@
     "typescript": "^5.7.3"
   },
   "dependencies": {
-    "dns-packet": "^5.6.1"
+    "dns-packet": "^5.6.1",
+    "database": "workspace:*"
   }
 }

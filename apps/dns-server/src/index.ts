@@ -1,6 +1,7 @@
 import { createSocket } from "dgram";
 import { decode, encode, AUTHORITATIVE_ANSWER } from "dns-packet";
 import { promises as dnsPromises } from "dns";
+import getRecords from "./utils/getRecords";
 
 const server = createSocket("udp4");
 
@@ -9,16 +10,7 @@ server.on("error", (err) => {
   server.close();
 });
 
-const db: { [key: string]: { [key: string]: string } } = {
-  A: {
-    "veeu.io": "76.76.21.21",
-    "ns1.veeu.io": "3.84.135.102",
-    "ns2.veeu.io": "3.84.135.102",
-  },
-  CNAME: {
-    "www.veeu.io": "veeu.io",
-  },
-};
+let records: { [key: string]: { [key: string]: string } } = {};
 
 server.on("message", async (msg, remoteInfo) => {
   const incomingReq = decode(msg);
@@ -39,11 +31,11 @@ server.on("message", async (msg, remoteInfo) => {
 
   let response;
   if (["A", "CNAME"].includes(reqType)) {
-    response = db[reqType][reqDomain!];
+    response = records[reqType][reqDomain!];
   }
 
-  if (reqType === "A" && !response && db.CNAME[reqDomain]) {
-    const cnameDomain = db.CNAME[reqDomain];
+  if (reqType === "A" && !response && records.CNAME[reqDomain]) {
+    const cnameDomain = records.CNAME[reqDomain];
 
     try {
       const addresses = await dnsPromises.resolve4(cnameDomain);
@@ -84,9 +76,12 @@ server.on("message", async (msg, remoteInfo) => {
 });
 
 // When the server starts listening, log the address and port information
-server.on("listening", () => {
+server.on("listening", async () => {
   const address = server.address();
   console.log(`DNS Server is running on ${address.address}:${address.port}`);
+
+  const newRecords = await getRecords();
+  records = newRecords || {};
 });
 
 server.bind(53, () => {});
