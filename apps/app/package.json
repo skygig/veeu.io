@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@clerk/nextjs": "^6.12.0",
-    "@prisma/client": "^6.4.1",
     "@reduxjs/toolkit": "^2.6.0",
     "next": "15.1.7",
     "react": "^19.0.0",
@@ -18,7 +17,8 @@
     "react-redux": "^9.2.0",
     "react-toastify": "^11.0.5",
     "sass": "^1.84.0",
-    "svix": "^1.61.1"
+    "svix": "^1.61.1",
+    "database": "workspace:*"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
@@ -27,7 +27,6 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.1.7",
-    "prisma": "^6.4.1",
     "typescript": "^5"
   }
 }

@@ -9,15 +9,16 @@
     "build": "pnpm recursive run build",
     "dev": "pnpm recursive run dev",
     "start": "pnpm recursive run start",
-    "dns-dev": "pnpm --filter dns-server run dev",
-    "dns-build": "pnpm -F dns-server build",
-    "dns-start": "pnpm -F dns-server start",
-    "web-dev": "pnpm -F web dev",
-    "web-build": "pnpm -F web build",
-    "web-start": "pnpm -F web start",
-    "app-dev": "pnpm -F app dev",
-    "app-build": "pnpm -F app build",
-    "app-start": "pnpm -F app start"
+    "dns:dev": "pnpm --filter dns-server run dev",
+    "dns:build": "pnpm -F dns-server build",
+    "dns:start": "pnpm -F dns-server start",
+    "web:dev": "pnpm -F web dev",
+    "web:build": "pnpm -F web build",
+    "web:start": "pnpm -F web start",
+    "app:dev": "pnpm -F app dev",
+    "app:build": "pnpm -F app build",
+    "app:start": "pnpm -F app start",
+    "prisma:generate": "pnpm --filter database prisma:generate"
   },
   "engines": {
     "node": ">=14.0.0"

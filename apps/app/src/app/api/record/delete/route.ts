@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getAuth } from "@clerk/nextjs/server";
 
-import { prisma } from "@/lib/prisma";
+import prisma from "database";
 
 export const DELETE = async (request: NextRequest) => {
   try {
