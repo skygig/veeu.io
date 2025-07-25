@@ -18,7 +18,8 @@
     "app:dev": "pnpm -F app dev",
     "app:build": "pnpm -F app build",
     "app:start": "pnpm -F app start",
-    "prisma:generate": "pnpm --filter database prisma:generate"
+    "prisma:generate": "pnpm --filter database prisma:generate",
+    "database:build": "pnpm --filter database build"
   },
   "engines": {
     "node": ">=14.0.0"
