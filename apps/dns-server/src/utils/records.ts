@@ -4,16 +4,7 @@ class DNSRecord {
   records: RecordsType;
 
   constructor() {
-    this.records = {
-      A: {
-        "veeu.io": "76.76.21.21",
-        "ns1.veeu.io": "3.84.135.102",
-        "ns2.veeu.io": "3.84.135.102",
-      },
-      CNAME: {
-        "www.veeu.io": "veeu.io",
-      },
-    };
+    this.records = {};
   }
 
   addOrUpdate(type: string, name: string, value: string) {
